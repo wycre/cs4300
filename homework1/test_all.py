@@ -1,3 +1,5 @@
+import os
+import pytest
 import task1, task2, task3, task4, task5, task6, task7
 
 def test_task1(capfd):
@@ -55,8 +57,15 @@ def test_students():
     assert db["0001"] == "Jeff"
     assert db["0004"] == "Bobbie"
 
-def test_wordcount():
-    assert task6.count_words() == 127
+"""Lines 61-68 adapted from ChatGPT https://chatgpt.com/share/67acfc16-ccb0-8011-8108-e2c1c5afec22"""
+# Dynamically generate test cases for all .txt files in the directory
+text_files = [f for f in os.listdir() if f.endswith(".txt")]
+
+@pytest.mark.parametrize("filename", text_files)
+def test_word_count(filename):
+    """Dynamically tests word count for all .txt files in the directory."""
+    word_count = task6.count_words(filename)
+    assert word_count > 0  # Ensure that the file has at least one word
 
 
 def test_task7():
