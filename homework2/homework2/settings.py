@@ -26,9 +26,7 @@ SECRET_KEY = 'django-insecure-zps$*bs10nxoq@kkx-%z*^8xeg6(9fh+w-l9w$)p30n&ci4xu#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'app.devedu.wycre.net'
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

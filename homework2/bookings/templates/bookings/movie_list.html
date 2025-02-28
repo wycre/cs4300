@@ -1,17 +1,14 @@
-{% extends "bookings/base.html" %}
-
-{% block title %} Movie List {% endblock %}
-
+{% extends 'bookings/base.html' %}
+{% block title %}Movie List{% endblock %}
 {% block content %}
-{% include "bookings/navbar.html" %}
-<h2 > Available Movies </h2 >
-<ul class ="list - group ">
+<h2>Available Movies</h2>
+<ul class="list-group">
     {% for movie in movies %}
-    <li class ="list-group-item">
-        <h5 >{{ movie.title }} </h5 >
-        <p>{{ movie.description }} </p>
-        <a href ="{% url "book_seat" movie.id %}" class ="btn btn - primary ">Book Now</a>
-    </li >
+    <li class="list-group-item">
+        <h5>{{ movie.title }}</h5>
+        <p>{{ movie.description }}</p>
+        <a href="{% url 'list_seats' movie.id %}" class="btn btn-primary">Book Now</a>
+    </li>
     {% endfor %}
-</ul >
+</ul>
 {% endblock %}
